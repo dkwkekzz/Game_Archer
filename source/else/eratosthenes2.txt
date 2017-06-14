@@ -1,0 +1,27 @@
+int minFactor[MAX_N];
+
+void eratosthenes(){
+	minFactor[0] = minFactor[1] = -1;
+	for (int i = 2; i <= n; i++)
+		minFactor[i] = i;
+
+	int sqrtn = sqrt(n);
+	for (int i = 2; i <= sqrtn; i++){
+		if (minFactor[i] == i){
+			for (int j = i * i; j <= n; j += i)
+			if (minFactor[j] == j)
+				minFactor[j] = i;
+		}
+	}
+}
+
+vector<int> factor(int n){
+	vector<int> ret;
+	while (n > 1){
+		int f = minFactor[n];
+		ret.push_back(f);
+		n /= f;
+	}
+
+	return ret;
+}

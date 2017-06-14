@@ -1,0 +1,71 @@
+class Matrix{
+public:
+	Matrix(int n = 1){
+		m_n = n;
+		m_matrix = new int*[n];
+		for (int i = 0; i < n; ++i) {
+			m_matrix[i] = new int[n];
+			memset(m_matrix[i], 0, sizeof(m_matrix[i]));
+		}
+	}
+	Matrix(int n, int *a){
+		m_n = n;
+		m_matrix = new int*[n];
+		for (int i = 0; i < n; ++i) {
+			m_matrix[i] = new int[n];
+			for (int j = 0; j < n; ++j){
+				if (j < i) m_matrix[i][j] = 0;
+				else m_matrix[i][j] = a[i];
+			}
+		}
+	}
+	Matrix(const Matrix& mat){
+		m_n = mat.m_n;
+		m_matrix = new int*[m_n];
+		for (int i = 0; i < m_n; ++i) {
+			m_matrix[i] = new int[m_n];
+			for (int j = 0; j < m_n; ++j){
+				m_matrix[i][j] = mat[i][j];
+			}
+		}
+	}
+	~Matrix(){
+		for (int i = 0; i < m_n; ++i)
+			delete[] m_matrix[i];
+	}
+
+	Matrix& operator=(const Matrix& mat){
+		m_n = mat.m_n;
+		for (int i = 0; i < m_n; ++i) {
+			for (int j = 0; j < m_n; ++j){
+				m_matrix[i][j] = mat[i][j];
+			}
+		}
+		return *this;
+	}
+	int* operator[] (int n) const{
+		return m_matrix[n];
+	}
+	Matrix operator*(const Matrix& mat){
+		Matrix nMat(m_n);
+		for (int i = 0; i < m; i++){
+			long long sum = 0;
+			for (int j = i; j < m; j++){
+				sum += mat[i][j] * m_matrix[j][m - 1];
+				sum %= MOD;
+			}
+			nMat[i][m - 1] = sum;
+		}
+		return nMat;
+	}
+private:
+	int m_n;
+	int **m_matrix;
+};
+
+Matrix mpow(const Matrix& mat, int e){
+	if (e == 1) return mat;
+	if (e & 1)  return mpow(mat, e - 1) * mat;
+	Matrix ret = mpow(mat, e / 2);
+	return ret*ret;
+}

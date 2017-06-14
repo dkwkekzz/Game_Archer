@@ -1,0 +1,42 @@
+//각 정점의 컴포넌트 번호
+vector<int> sccId;
+vector<int> discovered;
+stack<int> st;
+int sccCounter, vertexCounter;
+
+int scc(int here){
+	int ret = discovered[here] = vertexCounter++;
+	//발견된 순서대로 스택에 넣는다. 
+	st.push(here);
+	for (int i = 0; i < adj[here].size(); i++){
+		int there = adj[here][i];
+		//처음 발견한다면 트리 간선이다.
+		//트리 간선이라면 최소 부모 발견점(discovered)를 찾는다.
+		//선조(발견점이 더 작은)로 갈 수 있는 역간선을 찾는 일이다. 
+		if (discovered[there] == -1) ret = min(ret, scc(there));
+	//교차 간선(u,v)을 확인하려면 도착점(v)의 컴포넌트를 확인하는 것이다.
+	//일단 끝까지 탐색 후에 교차 간선에 의해 도착한 점을 검사한다.
+	//도착점의 컴포넌트 분리가 이미 되어있다면 sccId가 갱신되어 있다.
+	//컴포넌트 분리가 되어 있다는 것은 부모로 올라갈 수 없음을 보장한다.
+		else if (sccId[there] == -1) ret = min(ret, discovered[there]);
+	}
+	//자식을 모두 검사했는데 더 이상의 선조가 없다면, 역간선이 없다면
+	if (ret == discovered[here]){
+		while (true){ 
+	//최근에 발견된 원소부터 빼면 검사한 컴포넌트를 묶을 수 있다.
+			int t = st.top();
+			st.pop();
+			sccId[t] = sccCounter;
+			if (t == here) break;
+		}
+		sccCounter++;
+	}
+	return ret;
+}
+
+vector<int> tarjanSCC(){
+	sccId = discovered = vector<int>(adj.size(), -1);
+	sccCounter = vertexCounter = 0;
+	for (int i = 0; i < adj.size(); i++) if (discovered[i] == -1) scc(i);
+	return sccId;
+}

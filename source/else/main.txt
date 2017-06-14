@@ -1,0 +1,28 @@
+#include <cstdio>
+#include <iostream>
+#include <algorithm>
+#include <cstring>
+#include <string>
+#include <vector>
+#include <queue>
+#include <deque>
+#include <stack>
+#include <list>
+#include <map>
+#include <cmath>
+using namespace std;
+typedef long long int64;
+
+int n;
+
+int main(int argc, char** argv) {
+	FILE* stream;
+	freopen_s(&stream, "input.txt", "r", stdin);
+
+	cin.sync_with_stdio(false);
+	cin >> n;
+
+
+
+	return 0;	// 정상종료 시 반드시 0을 리턴해야 합니다.
+}

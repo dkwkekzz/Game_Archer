@@ -1,0 +1,23 @@
+uint64 minFactor(uint64 a){
+	uint64 sqrtn = sqrt(a), ret;
+	vector<int> minF(sqrtn + 1, 1);
+	for (int i = 2; i <= sqrtn; i++){
+		if (a % i == 0) {
+			minF[i]++;
+			a = a / i;
+			sqrtn = sqrt(a);
+			i = 1;
+		}
+	}
+
+	if (a < minF.size()) {
+		minF[a]++; ret = 1;
+	}
+	else ret = 2;
+
+	for (int i = 2; i < minF.size(); i++){
+		ret *= minF[i];
+	}
+
+	return ret;
+}

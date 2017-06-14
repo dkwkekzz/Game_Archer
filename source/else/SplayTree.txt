@@ -1,0 +1,204 @@
+// The code is adopted from http://goo.gl/SDH9hH
+#include <stdio.h>
+#include <stdlib.h>
+#include <vector>
+#include <map>
+
+// An AVL tree node
+struct node
+{
+	node(int k = 0) : key(k), left(nullptr), right(nullptr) { }
+	int key;
+	node *left, *right;
+};
+
+/* Helper function that allocates a new node with the given key and
+NULL left and right pointers. */
+node* newNode(int key)
+{
+	return new node(key);
+}
+
+// A utility function to right rotate subtree rooted with y
+// See the diagram given above.
+node *rightRotate(node *x)
+{
+	node *y = x->left;
+	x->left = y->right;
+	y->right = x;
+	return y;
+}
+
+// A utility function to left rotate subtree rooted with x
+// See the diagram given above.
+node *leftRotate(node *x)
+{
+	node *y = x->right;
+	x->right = y->left;
+	y->left = x;
+	return y;
+}
+
+node* getMaxValue(node* root){
+	if (root->right != nullptr) return getMaxValue(root->right);
+	return root;
+}
+
+node* getMinValue(node* root){
+	if (root->left != nullptr) return getMinValue(root->left);
+	return root;
+}
+
+// This function brings the key at root if key is present in tree.
+// If key is not present, then it brings the last accessed item at
+// root.  This function modifies the tree and returns the new root
+node *splay(node *root, int key)
+{
+	// Base cases: root is NULL or key is present at root
+	if (root == nullptr || root->key == key)
+		return root;
+
+	// Key lies in left subtree
+	if (root->key > key)
+	{
+		// 찾는 key값이 없다면, 루트를 반환하며 끝낸다.
+		if (root->left == nullptr) return root;
+
+		// Zig-Zig (Left Left)
+		if (root->left->key > key)
+		{
+			// First recursively bring the key as root of left-left
+			root->left->left = splay(root->left->left, key);
+
+			// Do first rotation for root, second rotation is done after else
+			root = rightRotate(root);
+		}
+		else if (root->left->key < key) // Zig-Zag (Left Right)
+		{
+			// First recursively bring the key as root of left-right
+			root->left->right = splay(root->left->right, key);
+
+			// Do first rotation for root->left
+			if (root->left->right != nullptr)
+				root->left = leftRotate(root->left);
+		}
+
+		// Do second rotation for root
+		return (root->left == nullptr) ? root : rightRotate(root);
+	}
+	else // Key lies in right subtree
+	{
+		// Key is not in tree, we are done
+		if (root->right == nullptr) return root;
+
+		// Zag-Zig (Right Left)
+		if (root->right->key > key)
+		{
+			// Bring the key as root of right-left
+			root->right->left = splay(root->right->left, key);
+
+			// Do first rotation for root->right
+			if (root->right->left != nullptr)
+				root->right = rightRotate(root->right);
+		}
+		else if (root->right->key < key)// Zag-Zag (Right Right)
+		{
+			// Bring the key as root of right-right and do first rotation
+			root->right->right = splay(root->right->right, key);
+			root = leftRotate(root);
+		}
+
+		// Do second rotation for root
+		return (root->right == nullptr) ? root : leftRotate(root);
+	}
+}
+
+// The search function for Splay tree.  Note that this function
+// returns the new root of Splay Tree.  If key is present in tree
+// then, it is moved to root.
+node *search(node *root, int key)
+{
+	return splay(root, key);
+}
+
+// Function to insert a new key k in splay tree with given root
+node *insert(node *root, int k)
+{
+	// Simple Case: If tree is empty
+	if (root == nullptr) return newNode(k);
+
+	// Bring the closest leaf node to root
+	root = splay(root, k);
+
+	// If key is already present, then return
+	if (root->key == k) return root;
+
+	// Otherwise allocate memory for new node
+	node *nNode = newNode(k);
+
+	// If root's key is greater, make root as right child
+	// of newnode and copy the left child of root to newnode
+	if (root->key > k)
+	{
+		nNode->right = root;
+		nNode->left = root->left;
+		root->left = nullptr;
+	}
+
+	// If root's key is smaller, make root as left child
+	// of newnode and copy the right child of root to newnode
+	else
+	{
+		nNode->left = root;
+		nNode->right = root->right;
+		root->right = nullptr;
+	}
+
+	return nNode; // newnode becomes new root
+}
+
+node* erase(node* root, int k){
+	if (root == nullptr) return root;
+
+	root = splay(root, k);
+	if (root->key != k) return root;
+
+	node* s = root->left;
+	node* t = root->right;
+	s = splay(s, getMaxValue(s)->key);
+	node* ret = s;
+	ret->right = t;
+
+	return ret;
+}
+
+// A utility function to print preorder traversal of the tree.
+// The function also prints height of every node
+void preOrder(node *root)
+{
+	if (root != nullptr)
+	{
+		preOrder(root->left);
+		printf("%d ", root->key);
+		preOrder(root->right);
+	}
+}
+
+/* Drier program to test above function*/
+int main()
+{
+	node *root = newNode(1);
+	std::map<int, int> m;
+	std::vector<int> v { 5, 3, 9, -1, 0, 2, 12 };
+	for (int i = 0; i < v.size(); i++){
+		int nk = v[i];
+		root = insert(root, nk);
+	}
+	root = erase(root, 9);
+	root = erase(root, 5);
+	root = erase(root, 3);
+	printf("Preorder traversal of the modified Splay tree is \n");
+	preOrder(root);
+	//printf("%d\n", getMaxValue(root)->key);
+	return 0;
+}

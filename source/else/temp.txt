@@ -1,0 +1,23 @@
+int cache_ch[MAX_N][1 << 6];
+int check(int start, int selected){
+	int &ret = cache_ch[start][selected];
+	if (ret != -1) return ret;
+	//test2++;
+	for (int i = selected, j = 1; i; i >>= 1, j++){
+		if (i & 1) {
+			int e = j + start;
+			if (e >= n) return ret = -INF;
+		}
+	}
+	selected = (selected*2) + 1;
+	ret = 0;
+	int state = 0, value = INF;
+	for (int i = n; i < lcp.size(); i++){
+		int index = tokens[sa[i]] - start;
+		if (index >= 0) { state |= (1 << index); }
+		if ((state & selected) == selected) { ret = max(ret, value); }
+		if (!lcp[i]){ value = INF; state = 0; }
+		else if ((1 << index) & selected) value = min(value, lcp[i]); 
+	}
+	return ret;
+}

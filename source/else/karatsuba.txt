@@ -1,0 +1,110 @@
+
+typedef vector<int> lint;
+
+bool operator>(const lint& a, const lint& b){
+	if (a.size() == b.size()) {
+		for (int i = a.size() - 1; i >= 0; i--){
+			if (a[i] == b[i]) continue;
+			return a[i] > b[i];
+		}
+	}
+	else return a.size() > b.size();
+	return false;
+}
+
+void normalize(lint& a){
+	int n = a.size();
+	a.push_back(0);
+	for (int i = 0; i < n; i++){
+		if (a[i] < 0){
+			int borrow = (abs(a[i]) + 9) / 10;
+			a[i + 1] -= borrow;
+			a[i] += borrow * 10;
+		}
+		else{
+			a[i + 1] += a[i] / 10;
+			a[i] %= 10;
+		}
+	}
+	while (a.size() > 1 && a.back() == 0) a.pop_back();
+}
+
+//multiply({3, 2, 1}, {6, 5, 4}) = 123 * 456
+lint multiply(const lint& a, const lint& b){
+	lint c(a.size() + b.size() + 1, 0);
+	for (int i = 0; i < a.size(); i++)
+	for (int j = 0; j < b.size(); j++)
+		c[i + j] += a[i] * b[j];
+	normalize(c);
+	return c;
+}
+
+//a += b * (10^k);
+void addTo(lint& a, const lint& b, int k){
+	lint c;
+	for (int i = 0; i < k; i++) c.push_back(0); 
+	for (int i = 0; i < b.size(); i++) c.push_back(b[i]);
+	for (int i = 0; i < max(a.size(), c.size()); i++){
+		if (i >= a.size()) a.push_back(0);
+		else if (i >= c.size()) c.push_back(0);
+		a[i] += c[i];
+	}
+	normalize(a);
+}
+
+//a -= b; (a >= b)
+void subFrom(vector<int>& a, const vector<int>& b){
+	assert(a.size() >= b.size());
+	for (int i = 0; i < b.size(); i++){ a[i] -= b[i]; }
+	normalize(a);
+}
+
+vector<int> karatsuba(const vector<int>& a, const vector<int>& b){
+	int an = a.size(), bn = b.size();
+	if (an < bn) return karatsuba(b, a);
+	if (an == 0 || bn == 0) return vector<int>();
+	if (an <= 50) return multiply(a, b);
+
+	int half = an / 2;
+	vector<int> a0(a.begin(), a.begin() + half);
+	vector<int> a1(a.begin() + half, a.end());
+	vector<int> b0(b.begin(), b.begin() + min<int>(b.size(), half));
+	vector<int> b1(b.begin() + min<int>(b.size(), half), b.end());
+
+	//(a0 + a1) * (b0 + b1) = a0*b0 + (a1*b0 + a0*b1) + a1*b1 = z0 + z1 + z2
+	vector<int> z2 = karatsuba(a1, b1);
+	vector<int> z0 = karatsuba(a0, b0);
+	//(a1*b0 + a0*b1) = z1 = (a0 + a1) * (b0 + b1) - z0 - z2
+	addTo(a0, a1, 0); addTo(b0, b1, 0);
+	vector<int> z1 = karatsuba(a0, b0);
+	subFrom(z1, z0); subFrom(z1, z2);
+
+	//ret = z2 * 10^an + z1 * 10^half + z2
+	vector<int> ret;
+	addTo(ret, z2, an);
+	addTo(ret, z1, half);
+	addTo(ret, z0, 0);
+
+	return ret;
+}
+
+void printLint(const vector<int>& a){
+	int n = a.size();
+	for (int i = 0; i < n; i++){ cout << a[n - 1 - i]; }
+	cout << endl;
+}
+
+lint getLintFromInt(int n){
+	lint ret;
+	while (n > 0){
+		ret.push_back(n % 10);
+		n /= 10;
+	}
+	return ret;
+}
+
+lint getLintFromString(const string& s){
+	lint ret;
+	for (int i = s.size() - 1; i >= 0; i--) ret.push_back(s[i] - '0');
+	return ret;
+}
