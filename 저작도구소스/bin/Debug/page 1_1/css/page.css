@@ -1,0 +1,544 @@
+
+body{
+	width:1024px;
+	height:768px;
+	margin: 0px;
+}
+
+#container{
+	width:1024px;
+	height:768px;
+	z-index:-999;
+	}
+
+
+
+#image1 {
+	position:absolute;
+	top: 150px;
+    left: 40px;
+	z-index:4;
+	width:600px;
+	height:450px;
+	background-image: url("../pdf.png");
+	background-size:100%100%;
+}
+
+
+h1 {
+	position:absolute;
+	width: 300px;
+	top: 150px;
+    left: 672px;
+	/*text-align: center;*/
+	font-size: 26px;
+	color: #333;
+	line-height: 36px;
+}
+
+
+#btn {
+	position:absolute;
+	top: 530px;
+    left: 720px;
+	width: 150px;
+	height: 60px;
+	color: #fff;
+	font-size: 20px;
+	text-align: center;
+	background-color: #18bbc4;
+	border-radius: 0.5em;
+	-moz-border-radius: 0.5em;
+ 	-webkit-border-radius: 0.5em;
+}
+
+#btn > span {
+	height: 60px;
+    width: 150px;
+    display: table-cell;
+    vertical-align: middle;
+}
+
+/***기본********************************************************** */
+@font-face { font-family: RIXModernMyeongjoB; 	src: url("../font/RIXModernMyeongjoB.woff"); }
+@font-face { font-family: RIXModernMyeongjoEB; 	src: url("../font/RIXModernMyeongjoEB.woff"); }
+@font-face { font-family: RixModernGothicB; 	src: url("../font/RixModernGothicB.woff"); }
+@font-face { font-family: RixModernGothicEB; 	src: url("../font/RixModernGothicEB.woff"); }
+/*@font-face { font-family: RixJJangguB; 			src: url("../font/RixJJangguB.woff"); }
+@font-face { font-family: RixJJangguM; 			src: url("../font/RixJJangguM.woff"); }
+@font-face { font-family: RixModernGothicM; 	src: url("../font/RixModernGothicM.woff"); }
+@font-face { font-family: RIXModernMyeongjoM; 	src: url("../font/RIXModernMyeongjoM.woff"); }
+@font-face { font-family: RixVitaB;	 			src: url("../font/RixVitaB.woff"); }
+@font-face { font-family: RixVitaM;	 			src: url("../font/RixVitaM.woff"); }
+@font-face { font-family: RixJGothicB;	 		src: url("../font/RixJGoB.woff"); }
+@font-face { font-family: RixBGothicM; 			src: url("../font/RixBGothicM.woff"); }
+@font-face { font-family: NMyeongjo; 			src: url("../font/NanumMyeongjo.woff"); }*/
+
+.textAlignC { text-align: center; }
+
+.RixMGoB 		{ font-family: RixModernGothicB;  letter-spacing: -2px;}
+.RixMGoEB 		{ font-family: RixModernGothicEB;  letter-spacing: -2px;}
+.RixMMjB 		{ font-family: RIXModernMyeongjoB; letter-spacing: -2px;}
+.RixMMjEB 		{ font-family: RIXModernMyeongjoEB; letter-spacing: -2px;}
+/*.RixMGoM 		{ font-family: RixModernGothicM; letter-spacing: -2px;}
+.RixMMjM 		{ font-family: RIXModernMyeongjoM; letter-spacing: -2px;}
+.RixVitaB		{ font-family: RixVitaB; font-weight: bold; }
+.RixVitaM		{ font-family: RixVitaM; font-weight: bold; }*/
+
+#mouseLog
+{
+	position: absolute;
+	top: 65px;
+	font-size: 25px;
+	color: blue;
+}
+
+/* ********************************************************** */
+/* 배경 */
+.openingContainer
+{
+	position: absolute;
+	width: 100%;
+	height:100%;
+	
+	background: url('../images/common/phase1BG.png') no-repeat;		
+}
+.activeContainer
+{
+	position: absolute;
+	width: 100%;
+	height:100%;
+	
+	background: url('../images/common/BG2.png') no-repeat;		
+}
+.popupContainer
+{
+	position: absolute;
+	width: 100%;
+	height:100%;
+	
+	background: url('../images/common/BG2.png') no-repeat;		
+	z-index: 5;
+	display: none;
+}
+
+/***제목***/
+/*제목이 2줄일 때 추가*/
+.doubleLineTitle
+{
+	
+}
+
+.titleIcon
+{
+	position: absolute;
+	top: 15px;
+	left: 30px;
+	width: 57px;
+	height: 57px;
+	
+}
+
+.contentsBox
+{
+	position: absolute;
+	padding: 10px;
+	overflow: hidden;	
+}
+
+.innerBox
+{
+	position: absolute;
+	top: 10px;
+	left: 10px;
+	width: 96%;
+	height: 93.2%;
+	
+	background: url('../images/img01.png') no-repeat;
+	background-size: cover;
+}
+
+.contentsTitle
+{
+	position: absolute;
+	top: 10px;
+	left: 0px;
+	width: 100%;
+	height: 88px;
+	
+}
+
+.contentsTitle .titleText
+{
+	position: absolute;
+	left: 110px;
+	
+	font-family: RixModernGothicB;
+	text-align: left;
+	font-size: 40px;
+	height: 88px;
+	line-height: 88px;
+}
+
+.titleIconNote
+{
+	position: absolute;
+	top: 15px;
+	left: 30px;
+	width: 57px;
+	height: 57px;
+	background: url('../images/common/phase3IconNote.png') no-repeat;
+}
+.titleIconVideo
+{
+	position: absolute;
+	top: 15px;
+	left: 30px;
+	width: 57px;
+	height: 57px;
+	background: url('../images/common/phase3IconVideo.png') no-repeat;
+}
+
+.contentsBox
+{
+	position: absolute;
+	top: 108px;
+	left: 18px;
+	
+	width: 992px;
+	height: 643px;
+	
+	background: url('../images/common/BG2.png') no-repeat;
+	
+}
+
+.sheetImg
+{
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	
+	background: url('../images/sheet.png') no-repeat;
+	background-size: cover;
+}	
+
+/*openingContainer*/
+.openingContainer .contentsTitle
+{
+	background: url('../images/common/phase1cloud.png') no-repeat;
+}
+
+.openingContainer .titleIcon
+{
+	background: url('../images/common/phase1Icon.png') no-repeat;
+}
+
+.openingContainer .contentsBox
+{
+	background: url('../images/common/phase1Board.png') no-repeat;
+}
+
+/*activeContainer*/
+.activeContainer .contentsTitle
+{
+	background: url('../images/common/BG2title.png') no-repeat;
+}
+
+.activeContainer .titleIcon
+{
+	background: url('../images/common/phase2Icon.png') no-repeat;
+}
+
+.activeContainer .contentsBox
+{
+	background: url('../images/common/BG2contents.png') no-repeat;
+}
+
+/*popupContainer*/
+.popupContainer .contentsTitle
+{
+	background: url('../images/common/BG2title.png') no-repeat;
+}
+
+.popupContainer .contentsBox
+{
+	background: url('../images/common/BG2contents.png') no-repeat;
+}
+
+.popupContainer .closeButton
+{
+	position: absolute;
+	top: 10px;
+	left: 920px;
+	
+	width: 94px;
+	height: 94px;
+	
+	background: url('../images/common/phase3ButtonX.png') no-repeat;
+}
+
+.popupContainer .closeButton:hover
+{
+	top: 5px;
+	left: 915px;
+	
+	width: 104px;
+	height: 104px;
+	background-size: 104px 104px;
+}
+
+.popupContainer .innerBox
+{
+	background: 0;
+	background-size: 0;
+}
+
+.noBox
+{
+	/*배경을 추가하고 싶지 않을때 추가한다.*/
+	background: 0;
+	background-size: 0;
+}
+
+
+/*qBox*/
+.qBox {
+	position: absolute;
+	display: inline-block; 
+	bottom: 20px;
+	min-width: 58px;
+	max-width: 900px;
+	padding: 4px 5px;
+	border-radius: 2px;
+	background: #ffcc66;
+	border: 4px solid #cccc66;
+	box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.5), inset 0px 0px 4px rgba(0, 0, 0, 0.5);
+	line-height: 66px;
+	cursor: pointer;
+}
+.qBox.maxWidth {
+	width: 900px;
+	margin-left: 30px;
+}
+.qBox.maxWidth .qBoxBg, .qBox.maxWidth_check .qBoxBg{
+	text-align: justify;
+}
+.qText {
+	opacity: 0;
+	color: #0167cd;
+	font-size: 44px;
+	letter-spacing: -3px;
+	text-align: center;
+	vertical-align: middle;
+	font-family: RixModernGothicB;
+}
+.qBoxBg {
+    padding: 2px 4px;
+    border-radius: 12px;
+    background: linear-gradient(#ffe3b9, #ffd996 10px, #ffcc66 14px, #fdaa30 90%);
+    text-align: center;
+}
+.qIconBox {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	text-align: center;
+}
+.qIcon {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: url(../images/common/qIcon.png) center center no-repeat;
+	background-size: 58px 62px;
+}
+.qIcon:hover {
+	background: url(../images/common/qIcon_over.png) center center no-repeat;
+	background-size: 58px 62px;
+}
+
+.yellowLineBox {
+	position: absolute;
+	display: inline-block; 
+	bottom: 20px;
+	min-width: 58px;
+	max-width: 900px;
+	padding: 4px 5px;
+	border-radius: 2px;
+	border: 4px solid #cccc66;
+	box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.5), inset 0px 0px 4px rgba(0, 0, 0, 0.5);
+	line-height: 66px;
+	
+	font-size: 44px;
+	letter-spacing: -3px;
+	text-align: center;
+	vertical-align: middle;
+	font-family: RixModernGothicB;
+}
+.yellowLineBox.maxWidth {
+	width: 900px;
+	margin-left: 30px;
+}
+
+/* 공동 Table */
+ .tableContainer {
+     box-shadow: 0 0px 5px rgba(0, 0, 0, .6);
+     border-radius: 20px;
+     position: absolute;
+     box-sizing: border-box;
+     //background: #DEF3DC;
+     background: #ffb208;
+     //border: 4px solid #def3dc;
+     border: 4px solid #ffb208;
+     font-family: RixModernGothicB;
+     font-size: 44px;
+ }
+ 
+ .tableContainer table {
+     border-radius: 20px;
+     border: 4px solid #65703d;
+     border: 4px solid #c28806;
+     font-size: 44px;
+ }
+ 
+ .tableContainer td {
+     border-right: 4px solid #65703d;
+     border-bottom: 4px solid #65703d;
+     border-right: 4px solid #c28806;
+     border-bottom: 4px solid #c28806;
+ }
+ 
+ .tableContainer tr:first-child {
+     font-family: RixModernGothicEB;
+ }
+ 
+ .tableBorder tr:last-child td {
+     border-bottom: 0px;
+ }
+ 
+ .tableBorder tr td:last-child {
+     border-right: 0px;
+ }
+ 
+ .tableBorder .bgColor
+ {
+	 background-color: #ffb208;
+ }
+ 
+ .tableBorder .bgWhite
+ {
+	 background-color: white;
+ }
+ 
+ .borderTopLeft {
+     border-top-left-radius: 15px;
+ }
+ 
+ .borderTopRight {
+     border-top-right-radius: 15px;
+ }
+ 
+ .borderBottomLeft {
+     border-bottom-left-radius: 15px;
+ }
+ 
+ .borderBottomRight {
+     border-bottom-right-radius: 15px;
+ }
+ 
+ /*팝업 버튼*/
+.sheetPopupButton
+{
+	position: absolute;
+	width: 206px;
+	height: 69px;
+	cursor: pointer;
+	background: url('../images/common/buttonWatch3.png');
+	background-size: cover;
+}
+
+.imageFlashPopupButton
+{
+	position: absolute;
+	width: 206px;
+	height: 69px;
+	cursor: pointer;
+	background: url('../images/common/buttonWatch2.png');
+	background-size: cover;
+}
+
+.numCircleGreen{
+    position: absolute;
+    width: 48px;
+    height: 50px;
+    background-color: #d1dd87;
+    line-height: 55px;
+    color:#3e5920;
+    border-radius: 50%;
+    font-size: 45px;
+    font-family: RixModernGothicB;
+    text-align: center;
+    vertical-align: middle;
+    //cursor: pointer;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, .9)
+}
+.numCircleGreenInner{
+    box-sizing: border-box;
+    display: inline-block;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background: #fff;
+    border-radius: 50%;
+    box-shadow: inset 0px 0px 10px rgba(209, 221, 135, .9), inset 0px 0px 10px rgba(209, 221, 135, .9),inset 0px -30px 20px rgba(209, 221, 135, .3),inset 0px -30px 10px rgba(209, 221, 135, .3),inset 0px -20px 10px rgba(209, 221, 135, .3),inset 0px -20px 10px rgba(209, 221, 135, .3),inset 0px -20px 10px rgba(209, 221, 135, 9.5);
+}
+.subtitle_group .numCircleGreen
+{
+	position: absolute;
+	top: -50px;
+	left: 0px;
+}
+
+/*********************중등고등부*******************************/
+.customPlayButton
+{
+	position: absolute;
+	width: 261px;
+	height: 79px;
+	left: 355px;
+	bottom: 15px;
+	
+	background: url('../images/common/buttonPlay2.png') center center no-repeat;
+	background-size: 246px 69px;
+	
+	cursor: pointer;
+}
+.customPlayButton:hover
+{
+	background-size: 261px 79px;
+}
+
+.customActiomButton
+{
+	position: absolute;
+	width: 261px;
+	height: 79px;
+	left: 355px;
+	bottom: 15px;
+	
+	background: url('../images/common/buttonAction.png') center center no-repeat;
+	background-size: 246px 69px;
+	
+	cursor: pointer;
+}
+.customActiomButton:hover
+{
+	background-size: 261px 79px;
+}
+			
+ 
+ 
+ 

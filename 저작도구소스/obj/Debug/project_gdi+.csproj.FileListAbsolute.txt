@@ -1,0 +1,41 @@
+c:\users\softzen\documents\visual studio 2017\Projects\project_gdi+\project_gdi+\bin\Debug\project_gdi+.exe.config
+c:\users\softzen\documents\visual studio 2017\Projects\project_gdi+\project_gdi+\bin\Debug\project_gdi+.exe
+c:\users\softzen\documents\visual studio 2017\Projects\project_gdi+\project_gdi+\bin\Debug\project_gdi+.pdb
+c:\users\softzen\documents\visual studio 2017\Projects\project_gdi+\project_gdi+\obj\Debug\project_gdi+.csprojResolveAssemblyReference.cache
+c:\users\softzen\documents\visual studio 2017\Projects\project_gdi+\project_gdi+\obj\Debug\project_gdi_.Form1.resources
+c:\users\softzen\documents\visual studio 2017\Projects\project_gdi+\project_gdi+\obj\Debug\project_gdi_.Properties.Resources.resources
+c:\users\softzen\documents\visual studio 2017\Projects\project_gdi+\project_gdi+\obj\Debug\project_gdi+.csproj.GenerateResource.Cache
+c:\users\softzen\documents\visual studio 2017\Projects\project_gdi+\project_gdi+\obj\Debug\project_gdi+.exe
+c:\users\softzen\documents\visual studio 2017\Projects\project_gdi+\project_gdi+\obj\Debug\project_gdi+.pdb
+C:\Users\Softzen\documents\visual studio 2017\Projects\project_gdi+\project_gdi+\obj\Debug\Interop.SHDocVw.dll
+C:\Users\Softzen\documents\visual studio 2017\Projects\project_gdi+\project_gdi+\obj\Debug\project_gdi+.csproj.ResolveComReference.cache
+C:\Users\Softzen\documents\visual studio 2017\Projects\project_gdi+\project_gdi+\obj\Debug\project_gdi_.Form2.resources
+C:\Users\Softzen\documents\visual studio 2017\Projects\project_gdi+\project_gdi+\bin\Debug\System.Net.Json.dll
+E:\ytk\softzen\project_gdi+\project_gdi+\bin\Debug\project_gdi+.exe.config
+E:\ytk\softzen\project_gdi+\project_gdi+\obj\Debug\Interop.SHDocVw.dll
+E:\ytk\softzen\project_gdi+\project_gdi+\obj\Debug\project_gdi+.csproj.ResolveComReference.cache
+E:\ytk\softzen\project_gdi+\project_gdi+\obj\Debug\project_gdi+.exe
+E:\ytk\softzen\project_gdi+\project_gdi+\obj\Debug\project_gdi+.pdb
+E:\ytk\softzen\project_gdi+\project_gdi+\bin\Debug\project_gdi+.exe
+E:\ytk\softzen\project_gdi+\project_gdi+\bin\Debug\project_gdi+.pdb
+E:\ytk\softzen\project_gdi+\project_gdi+\bin\Debug\System.Net.Json.dll
+E:\ytk\softzen\project_gdi+\project_gdi+\obj\Debug\project_gdi+.csprojResolveAssemblyReference.cache
+E:\ytk\softzen\project_gdi+\project_gdi+\obj\Debug\project_gdi_.Form1.resources
+E:\ytk\softzen\project_gdi+\project_gdi+\obj\Debug\project_gdi_.Form2.resources
+E:\ytk\softzen\project_gdi+\project_gdi+\obj\Debug\project_gdi_.Properties.Resources.resources
+E:\ytk\softzen\project_gdi+\project_gdi+\obj\Debug\project_gdi+.csproj.GenerateResource.Cache
+F:\MobileWorks\project_ebook_music\project_gdi+\project_gdi+\bin\Debug\project_gdi+.exe.config
+F:\MobileWorks\project_ebook_music\project_gdi+\project_gdi+\obj\Debug\Interop.SHDocVw.dll
+F:\MobileWorks\project_ebook_music\project_gdi+\project_gdi+\obj\Debug\project_gdi+.csproj.ResolveComReference.cache
+F:\MobileWorks\project_ebook_music\project_gdi+\project_gdi+\obj\Debug\project_gdi+.exe
+F:\MobileWorks\project_ebook_music\project_gdi+\project_gdi+\obj\Debug\project_gdi+.pdb
+F:\MobileWorks\project_ebook_music\project_gdi+\project_gdi+\bin\Debug\project_gdi+.exe
+F:\MobileWorks\project_ebook_music\project_gdi+\project_gdi+\bin\Debug\project_gdi+.pdb
+F:\MobileWorks\project_ebook_music\project_gdi+\project_gdi+\bin\Debug\System.Net.Json.dll
+F:\MobileWorks\project_ebook_music\project_gdi+\project_gdi+\obj\Debug\project_gdi+.csprojResolveAssemblyReference.cache
+F:\MobileWorks\project_ebook_music\project_gdi+\project_gdi+\obj\Debug\project_gdi_.Form1.resources
+F:\MobileWorks\project_ebook_music\project_gdi+\project_gdi+\obj\Debug\project_gdi_.Form2.resources
+F:\MobileWorks\project_ebook_music\project_gdi+\project_gdi+\obj\Debug\project_gdi_.Properties.Resources.resources
+F:\MobileWorks\project_ebook_music\project_gdi+\project_gdi+\obj\Debug\project_gdi+.csproj.GenerateResource.Cache
+F:\MobileWorks\project_ebook_music\project_gdi+\project_gdi+\bin\Debug\NAudio.dll
+F:\MobileWorks\project_ebook_music\project_gdi+\project_gdi+\obj\Debug\project_gdi_.Form4.resources
